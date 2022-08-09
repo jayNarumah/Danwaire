@@ -13,7 +13,7 @@ class StoreWardRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreWardRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:5|max:40',
+            'state_id' => 'required|number',
+            'local_gov_id' => 'required|number',
         ];
     }
 }

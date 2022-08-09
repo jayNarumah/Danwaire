@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LocalGovSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class LocalGovSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\LocalGov::factory()->create();
+        \App\Models\User::factory()->create();
     }
 }

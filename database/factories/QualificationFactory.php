@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\LocalGov;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ward>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Qualification>
  */
-class WardFactory extends Factory
+class QualificationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +18,6 @@ class WardFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'local_gov_id' => LocalGov::create(),
         ];
     }
 }

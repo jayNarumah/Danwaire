@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\State;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LocalGov>
@@ -17,7 +18,8 @@ class LocalGovFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'state_id' => State::create(),
         ];
     }
 }

@@ -14,6 +14,6 @@ class WardSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Ward::factory()->create();
     }
 }

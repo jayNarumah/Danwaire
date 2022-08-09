@@ -13,7 +13,7 @@ class StoreDataRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StoreDataRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required|max:50',
+            'last_name' => 'required|max:50',
+            'email' => 'required|email',
+            'phone_number' => 'required|min:11|max:13',
+            'ward_id' => 'required|number',
+            'dob' => 'required|date',
+            'gender' => 'required',
+            'user_id' => 'required|number',
+            'qualification_id' => 'required|number',
+            'emp_status_id' => 'required|number',
         ];
     }
 }
