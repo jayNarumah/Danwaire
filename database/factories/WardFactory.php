@@ -19,7 +19,7 @@ class WardFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'local_gov_id' => LocalGov::create(),
+            'local_gov_id' => LocalGov::inRandomOrder()->first(),
         ];
     }
 }

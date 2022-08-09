@@ -22,11 +22,11 @@ class DataFactory extends Factory
     public function definition()
     {
         return [
-            // 'user_id' => User::create(),
-            'ward_id' => Ward::create(),
-            'qualification_id' => Qualification::create(),
-            'emp_status_id' => EmpStatus::create(),
-            'local_gov_id' => LocalGov::create(),
+            'user_id' => User::inRandomOrder()->first(),
+            'ward_id' => Ward::inRandomOrder()->first(),
+            'qualification_id' => Qualification::inRandomOrder()->first(),
+            'emp_status_id' => EmpStatus::inRandomOrder()->first(),
+            'local_gov_id' => LocalGov::inRandomOrder()->first(),
             'first_name' => $this->faker->firstName('male'),
             'last_name' => $this->faker->lastName('male'),
             'gender' => 'male',

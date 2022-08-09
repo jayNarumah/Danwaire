@@ -14,6 +14,6 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\State::factory()->create();
+        \App\Models\State::factory(5)->create();
     }
 }

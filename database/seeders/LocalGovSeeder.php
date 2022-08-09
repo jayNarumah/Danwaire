@@ -14,6 +14,6 @@ class LocalGovSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\LocalGov::factory()->create();
+        \App\Models\LocalGov::factory(5)->create();
     }
 }

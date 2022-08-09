@@ -14,6 +14,6 @@ class EmpStatusSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\EmpStatus::factory()->create();
+        \App\Models\EmpStatus::factory(5)->create();
     }
 }

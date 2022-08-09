@@ -19,7 +19,7 @@ class LocalGovFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'state_id' => State::create(),
+            'state_id' => State::inRandomOrder()->first(),
         ];
     }
 }

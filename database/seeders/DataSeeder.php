@@ -14,6 +14,6 @@ class DataSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Data::factory()->create();
+        \App\Models\Data::factory(5)->create();
     }
 }

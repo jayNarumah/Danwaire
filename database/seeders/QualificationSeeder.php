@@ -14,6 +14,6 @@ class QualificationSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Qualification::factory()->create();
+        \App\Models\Qualification::factory(5)->create();
     }
 }
