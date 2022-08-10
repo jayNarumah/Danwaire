@@ -13,7 +13,6 @@ class Data extends Model
         'user_id',
         'qualification_id',
         'emp_status_id',
-        'local_gov_id',
         'first_name',
         'middle_name',
         'last_name',
@@ -26,7 +25,6 @@ class Data extends Model
     protected $casts = [
         'ward_id' => 'integer',
         'user_id' => 'integer',
-        'local_gov_id' => 'integer',
         'qualification_id' => 'integer',
         'emp_status_id' => 'integer',
         'dob' => 'date',

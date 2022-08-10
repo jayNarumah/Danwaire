@@ -28,12 +28,11 @@ class UpdateDataRequest extends FormRequest
             'last_name' => 'required|max:50',
             'email' => 'required|email',
             'phone_number' => 'required|min:11|max:13',
-            'ward_id' => 'required|number',
+            'ward_id' => 'required',
             'dob' => 'required|date',
             'gender' => 'required',
-            'user_type_id' => 'required|number',
-            'qualification_id' => 'required|number',
-            'emp_status_id' => 'required|number',
+            'qualification_id' => 'required',
+            'emp_status_id' => 'required',
         ];
     }
 }

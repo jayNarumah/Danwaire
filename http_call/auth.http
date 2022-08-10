@@ -1,0 +1,42 @@
+GET http://127.0.0.1:8000/api/data HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:8000/api/data HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "first_name": "Abduljawad",
+    "middle_name": "Ibrahim",
+    "last_name": "Narumah",
+    "email": "jawadrumah@gmail.com",
+    "phone_number": "07066352444",
+    "dob": "2019-02-21",
+    "gender": "Male",
+    "first_name": "Abduljawad",
+    "emp_status_id": 2,
+    "qualification_id": 1,
+    "ward_id": 2
+}
+###
+PUT http://127.0.0.1:8000/api/data/3 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "first_name": "Abdouljawad",
+    "middle_name": "Ibraheemm",
+    "last_name": "Narumah",
+    "email": "abdouljawadibraheem@gmail.com",
+    "phone_number": "07066352444",
+    "dob": "2019-02-21",
+    "gender": "Male",
+    "emp_status_id": 2,
+    "qualification_id": 1,
+    "ward_id": 2
+}
+###
+DELETE http://127.0.0.1:8000/api/data/1 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
