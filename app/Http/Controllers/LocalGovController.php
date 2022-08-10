@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LocalGov;
 use App\Http\Requests\StoreLocalGovRequest;
 use App\Http\Requests\UpdateLocalGovRequest;
+use App\Http\Resources\LocalGovResource;
 
 class LocalGovController extends Controller
 {
@@ -15,7 +16,7 @@ class LocalGovController extends Controller
      */
     public function index()
     {
-        //
+        return new LocalGovResource(LocalGov::all(), 200);
     }
 
     /**
@@ -36,7 +37,12 @@ class LocalGovController extends Controller
      */
     public function store(StoreLocalGovRequest $request)
     {
-        //
+        $local_gov = LocalGov::create([
+            'name' => $request->name,
+            'state_id' => $request->state_id,
+        ]);
+
+        return new LocalGovResource($local_gov, 201);
     }
 
     /**
@@ -47,7 +53,7 @@ class LocalGovController extends Controller
      */
     public function show(LocalGov $localGov)
     {
-        //
+        return new LocalGovResource($localGov, 200);
     }
 
     /**
@@ -70,7 +76,11 @@ class LocalGovController extends Controller
      */
     public function update(UpdateLocalGovRequest $request, LocalGov $localGov)
     {
-        //
+           $localGov->name = $request->name;
+           $localGov->state_id = $request->state_id;
+           $localGov->save();
+
+           return new LocalGovResource($localGov, 200);
     }
 
     /**
@@ -81,6 +91,8 @@ class LocalGovController extends Controller
      */
     public function destroy(LocalGov $localGov)
     {
-        //
+        $localGov->delete();
+
+        return response()->json('Local Government Was Successfully Deleted !!!', 200);
     }
 }

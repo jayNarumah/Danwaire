@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\State;
 use App\Http\Requests\StoreStateRequest;
 use App\Http\Requests\UpdateStateRequest;
+use App\Http\Resources\StateResource;
 
 class StateController extends Controller
 {
@@ -15,18 +16,9 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        return StateResource::collection(State::all(), 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +28,9 @@ class StateController extends Controller
      */
     public function store(StoreStateRequest $request)
     {
-        //
+        $state = State::create(['name' => $request->name]);
+
+        return new StateResource($state, 201);
     }
 
     /**
@@ -47,7 +41,7 @@ class StateController extends Controller
      */
     public function show(State $state)
     {
-        //
+        return new StateResource($state, 200);
     }
 
     /**
@@ -70,7 +64,10 @@ class StateController extends Controller
      */
     public function update(UpdateStateRequest $request, State $state)
     {
-        //
+        $state->name = $request->name;
+        $state->save();
+
+        return new StateResource($state, 200);
     }
 
     /**
@@ -81,6 +78,8 @@ class StateController extends Controller
      */
     public function destroy(State $state)
     {
-        //
+        $state->delete();
+
+        return response()->json('State Was Successfully Deleted!!', 200);
     }
 }

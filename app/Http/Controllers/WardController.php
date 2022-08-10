@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ward;
 use App\Http\Requests\StoreWardRequest;
 use App\Http\Requests\UpdateWardRequest;
+use App\Http\Resources\WardResource;
 
 class WardController extends Controller
 {
@@ -15,17 +16,7 @@ class WardController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return WardResource::collection(Ward::all(), 200);
     }
 
     /**
@@ -36,7 +27,12 @@ class WardController extends Controller
      */
     public function store(StoreWardRequest $request)
     {
-        //
+        $ward = Ward::create([
+            'name' => $request->name,
+            'local_gov_id' => $request->local_gov_id,
+        ]);
+
+        return new WardResource($ward, 201);
     }
 
     /**
@@ -47,18 +43,7 @@ class WardController extends Controller
      */
     public function show(Ward $ward)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ward  $ward
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ward $ward)
-    {
-        //
+        return new WardResource($ward, 200);
     }
 
     /**
@@ -70,7 +55,11 @@ class WardController extends Controller
      */
     public function update(UpdateWardRequest $request, Ward $ward)
     {
-        //
+        $ward->name = $request->name;
+        $ward->local_gov_id = $request->local_gov_id;
+        $ward->save();
+
+        return new WardResource($ward, 200);
     }
 
     /**
@@ -81,6 +70,6 @@ class WardController extends Controller
      */
     public function destroy(Ward $ward)
     {
-        //
+        $ward->delete();
     }
 }
