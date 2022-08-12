@@ -18,7 +18,7 @@ class DataController extends Controller
     {
         $datas = Data::all();
 
-        return DataResource::collection($datas, 200);
+        return DataResource::collection($datas->load('ward', 'user', 'qualification', 'empStatus'), 200);
     }
 
     /**

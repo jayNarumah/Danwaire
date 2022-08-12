@@ -32,6 +32,6 @@ class LocalGov extends Model
      */
     public function state()//: BelongsTo
     {
-        return $this->belongsTo(State::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(State::class);
     }
 }

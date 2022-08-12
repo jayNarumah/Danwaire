@@ -16,7 +16,7 @@ class LocalGovController extends Controller
      */
     public function index()
     {
-        return new LocalGovResource(LocalGov::all(), 200);
+        return new LocalGovResource(LocalGov::all()->load('state'), 200);
     }
 
     /**

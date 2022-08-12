@@ -16,7 +16,7 @@ class StateController extends Controller
      */
     public function index()
     {
-        return StateResource::collection(State::all(), 200);
+        return StateResource::collection(State::all()->load('localGovs'), 200);
     }
 
 

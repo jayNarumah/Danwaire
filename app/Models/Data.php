@@ -37,7 +37,7 @@ class Data extends Model
      */
     public function user()//: BelongsTo
     {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(User::class);
     }
     /**
      * Get the ward that owns the Data
@@ -46,7 +46,7 @@ class Data extends Model
      */
     public function ward()//: BelongsTo
     {
-        return $this->belongsTo(Ward::class, 'ward_id', 'id');
+        return $this->belongsTo(Ward::class);
     }
 
     /**
@@ -56,7 +56,7 @@ class Data extends Model
      */
     public function qualification()//: BelongsTo
     {
-        return $this->belongsTo(Qualification::class, 'qualification_id', 'id');
+        return $this->belongsTo(Qualification::class);
     }
     /**
      * Get the empStatus that owns the Data
@@ -65,6 +65,6 @@ class Data extends Model
      */
     public function empStatus()//: BelongsTo
     {
-        return $this->belongsTo(EmpStatus::class, 'emp_status_is', 'id');
+        return $this->belongsTo(EmpStatus::class);
     }
 }
