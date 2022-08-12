@@ -29,4 +29,42 @@ class Data extends Model
         'emp_status_id' => 'integer',
         'dob' => 'date',
     ];
+
+    /**
+     * Get the user that owns the Data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()//: BelongsTo
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
+    /**
+     * Get the ward that owns the Data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function ward()//: BelongsTo
+    {
+        return $this->belongsTo(Ward::class, 'ward_id', 'id');
+    }
+
+    /**
+     * Get the qualification that owns the Data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function qualification()//: BelongsTo
+    {
+        return $this->belongsTo(Qualification::class, 'qualification_id', 'id');
+    }
+    /**
+     * Get the empStatus that owns the Data
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function empStatus()//: BelongsTo
+    {
+        return $this->belongsTo(EmpStatus::class, 'emp_status_is', 'id');
+    }
 }

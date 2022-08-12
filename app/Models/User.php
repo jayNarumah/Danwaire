@@ -41,4 +41,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * Get all of the datas for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function datas()//: HasMany
+    {
+        return $this->hasMany(Data::class, 'user_id', 'id');
+    }
+    /**
+     * Get the userType that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userType()//: BelongsTo
+    {
+        return $this->belongsTo(UserType::class, 'user_type_id', 'id');
+    }
 }

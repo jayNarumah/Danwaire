@@ -25,7 +25,7 @@ class StoreLocalGovRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:40',
-            'state_id' => 'required|number',
+            'state_id' => 'required',
         ];
     }
 }

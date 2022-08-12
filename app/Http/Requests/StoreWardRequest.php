@@ -25,8 +25,7 @@ class StoreWardRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:40',
-            'state_id' => 'required|number',
-            'local_gov_id' => 'required|number',
+            'local_gov_id' => 'required',
         ];
     }
 }

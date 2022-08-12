@@ -64,3 +64,55 @@ Accept: application/json
 DELETE http://127.0.0.1:8000/api/state/2 HTTP/1.1
 Content-Type: application/json
 Accept: application/json
+###
+GET http://127.0.0.1:8000/api/local-gov HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:8000/api/local-gov HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Gusau",
+    "state_id": 2
+}
+###
+PUT http://127.0.0.1:8000/api/local-gov/2 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Bungudu",
+    "state_id": 2
+}
+###
+DELETE http://127.0.0.1:8000/api/local-gov/2 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+GET http://127.0.0.1:8000/api/ward HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:8000/api/ward HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Mayana",
+    "local_gov_id": 2
+}
+###
+PUT http://127.0.0.1:8000/api/ward/2 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Galadima",
+    "local_gov_id": 2
+}
+###
+DELETE http://127.0.0.1:8000/api/ward/2 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
